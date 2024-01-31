@@ -17,7 +17,7 @@ const Page = (props) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/tasks?userId=${props.userId}`);
+        const response = await axios.get(`https://taskmanager-devtown-back-f3tjwmqbj-rishabhmaindolas-projects.vercel.app/tasks?userId=${props.userId}`);
         if (response.status === 200) {
           setTasks(response.data);
         } else if (response.status === 400) {
@@ -45,7 +45,7 @@ const Page = (props) => {
           description: "",
           dueDate: "",
         });
-        const response = await axios.post("http://localhost:5000/task", {
+        const response = await axios.post("https://taskmanager-devtown-back-f3tjwmqbj-rishabhmaindolas-projects.vercel.app/task", {
           user:props.userId,
           title: newTask.title,
           description: newTask.description,
@@ -93,7 +93,7 @@ const Page = (props) => {
     ) {
       try {
         await axios.put(
-          `http://localhost:5000/update/${editTask._id}`,
+          `https://taskmanager-devtown-back-f3tjwmqbj-rishabhmaindolas-projects.vercel.app/update/${editTask._id}`,
           editTask
         );
         setTasks((prevTasks) =>
@@ -111,7 +111,7 @@ const Page = (props) => {
   const deleteTask = async (taskId) => {
     try {
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
-      await axios.delete(`http://localhost:5000/delete/${taskId}`);
+      await axios.delete(`https://taskmanager-devtown-back-f3tjwmqbj-rishabhmaindolas-projects.vercel.app/delete/${taskId}`);
       console.log("task deleted successfully", taskId);
        toast.error('Task deleted successfully', {
           position: "top-center",
