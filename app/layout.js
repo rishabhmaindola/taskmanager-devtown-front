@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
-    <meta name="google-adsense-account" content="ca-pub-5708777381218001">
+    <meta name="google-adsense-account" content="ca-pub-5708777381218001"/>
     </head>
       <body suppressHydrationWarning className={inter.className}>{children}</body>
     </html>
